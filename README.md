@@ -1,4 +1,4 @@
-Open this page at [https://nolan0027.github.io/geometry-arcade/](https://nolan0027.github.io/geometry-arcade/)
+Open this page at [https://nolan0027.github.io/geometry-arcade](https://nolan0027.github.io/geometry-arcade)
 - or https://arcade.makecode.com/S53227-65325-23930-30433
 
 This is a fanmade recreation of Robert "Robtop" Topala's Geometry Dash, one of my favorite games, into MakeCode Arcade.
