@@ -1,22 +1,12 @@
+Open this page at [https://nolan0027.github.io/geometry-arcade/](https://nolan0027.github.io/geometry-arcade/)
 
-> Open this page at [https://nolan0027.github.io/geometry-arcade/](https://nolan0027.github.io/geometry-arcade/)
-
-## Use as Extension
-
-This repository can be added as an **extension** in MakeCode.
-
-* open [https://arcade.makecode.com/](https://arcade.makecode.com/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/nolan0027/geometry-arcade** and import
-
-## Edit this project ![Build status badge](https://github.com/nolan0027/geometry-arcade/workflows/MakeCode/badge.svg)
-
-To edit this repository in MakeCode.
-
-* open [https://arcade.makecode.com/](https://arcade.makecode.com/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/nolan0027/geometry-arcade** and click import
+Bugs
+-Player doesn't move after dying>~2
+Plans
+-Main menu [0/1]
+-Back on track [0/1]
+-Icon customization [0/1]
+-Icons [0/10]
 
 ## Blocks preview
 
