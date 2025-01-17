@@ -4,12 +4,6 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true
     },
-    "tile1": {
-        "data": "hwQQABAAAABhZmZmZmZmZoGIiIiIiIiIgYiIiIiIiIiBiIiIiIiIiIGIiIiIiIiIgYiIiIiIiIiBiIiIiIiIiIGIiIiIiIiIgYiIiIiIiIiBiIiIiIiIiIGIiIiIiIiIgYiIiIiIiIiBiIiIiIiIiIGIiIiIiIiIgYiIiIiIiIhhZmZmZmZmZg==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "Ground"
-    },
     "tile2": {
         "data": "hwQQABAAAAAAAAAAAAAA/wAAAAAAAP/MAAAAAAD/y8wAAADw/7vLzAAA8L+7u8vMAPDfu7u7y8zw3927u7vLzN/d3bu7u8vM8N/du7u7y8wA8N+7u7vLzAAA8L+7u8vMAAAA8P+7y8wAAAAAAP/LzAAAAAAAAP/MAAAAAAAAAP8AAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -21,12 +15,6 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "Spike0"
-    },
-    "tile4": {
-        "data": "hwQQABAAAABmZmZmZmZmZoiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIhmZmZmZmZmZg==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "Ground0"
     },
     "tile5": {
         "data": "hwQQABAAAAD//////////8/MzLy7u7v7z8zMvLu7u/vPzMy8u7u7+8/MzLy7u7v7z8zMvLu7u/vPzMy8u7u7+8/MzLy7u7v7z8zMvLu7u/vPzMy8u7u7+8/MzLy7u7v7z8zMvLu7u/vPzMy8u7u7+8/MzLy7u7v7z8zMvLu7u/v//////////w==",
@@ -69,6 +57,18 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "Ship"
+    },
+    "tile4": {
+        "data": "hwQQABAAAACIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Ground0"
+    },
+    "tile1": {
+        "data": "hwQQABAAAACBiIiIiIiIiIGIiIiIiIiIgYiIiIiIiIiBiIiIiIiIiIGIiIiIiIiIgYiIiIiIiIiBiIiIiIiIiIGIiIiIiIiIgYiIiIiIiIiBiIiIiIiIiIGIiIiIiIiIgYiIiIiIiIiBiIiIiIiIiIGIiIiIiIiIgYiIiIiIiIiBiIiIiIiIiA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Ground"
     },
     "level2": {
         "id": "level2",
