@@ -4,6 +4,7 @@ This is a fanmade recreation of Robert "Robtop" Topala's Geometry Dash, one of m
 
 Bugs
 - Player doesn't move after dying>~2
+
 Plans
 - Main menu [0/1]
 - Back on track [0/1]
