@@ -1,0 +1,17 @@
+{
+    "Q2Zmq05oR0Sr]K%:-dMn": {
+        "data": "hwQQABAAAAD//////////393d3d3d3f3f3d3d3d3d/d/9/////9/93/3AAAAAH/3f/fw//8Pf/d/9/CZmQ9/93/38JmZD3/3f/fwmZkPf/d/9/CZmQ9/93/38P//D3/3f/cAAAAAf/d/9/////9/9393d3d3d3f3f3d3d3d3d/f//////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Player"
+    },
+    "i#~e3(y_3": {
+        "data": "hwQQABAAAAAAABEAEREBAAD//xZmFhEB8HeXERH3BgF/d2dmYXdvEH93ZhmZd/cGf3eWZhF2dw9/d5GRGXZ3H/+XlpERdvcWEBGWlpF29xYBkZZhcX/3BhCWYZl3bx8BABFhdnf3GQEAERZ5d/cRAQAAYHd39wABEBBwd3cfEQAAAHB39wEBAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "PlayerDie"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
