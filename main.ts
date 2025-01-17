@@ -12,7 +12,7 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.A.isPressed()) {
-        Playar.vy = -105
+        Playar.vy = -100
         timer.background(function () {
             for (let index = 0; index < 6; index++) {
                 transformSprites.changeRotation(Playar, 30)
@@ -23,14 +23,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 }
             }
         })
-        pause(400)
-        Playar.vy = 105
+        pause(420)
+        Playar.vy = 100
         pause(400)
     }
 })
 statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.GTE, statusbars.ComparisonType.Percentage, 100, function (status) {
     game.gameOver(true)
-    info.setScore(100)
 })
 let A = 0
 let Progress: StatusBarSprite = null
