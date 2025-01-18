@@ -45,7 +45,7 @@ function Menu2 () {
 function Level (Id: number) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     if (Id == 1) {
-        continue;
+    	
     } else if (Id == 2) {
         tiles.setCurrentTilemap(tilemap`Level2`)
     }
