@@ -1,20 +1,20 @@
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
-    if (InLevel == 1 && (tiles.tileAtLocationEquals(location, assets.tile`Spike3`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike4`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike0`) || tiles.tileAtLocationEquals(location, assets.tile`Spike2`))) || Playar.isHittingTile(CollisionDirection.Bottom))) {
+    if (InLevel == 1 && (tiles.tileAtLocationEquals(location, assets.tile`Spike3`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike4`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike0`) || tiles.tileAtLocationEquals(location, assets.tile`Spike2`))) || (tiles.tileAtLocationEquals(location, assets.tile`Spike`) || Playar.isHittingTile(CollisionDirection.Right)))) {
         music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.UntilDone)
         Progress.value = 0
         tiles.placeOnTile(Playar, tiles.getTileLocation(0, 14))
+        Playar.setImage(assets.image`Player`)
         Playar.vx = 110
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    while (controller.A.isPressed() && InLevel == 1) {
-        Playar.vy = -150
-        Playar.setImage(assets.image`Jump`)
-        pause(370)
-        Playar.setImage(assets.image`Jump0`)
-        Playar.vy = 150
-        pause(370)
-        Playar.setImage(assets.image`Player`)
+    if (InLevel == 1) {
+        while (controller.A.isPressed() && Playar.isHittingTile(CollisionDirection.Bottom)) {
+            Playar.vy = -150
+            pause(370)
+            Playar.vy = 150
+            pause(370)
+        }
     }
 })
 function Menu2 () {
@@ -22,7 +22,6 @@ function Menu2 () {
     Title = sprites.create(assets.image`Title`, SpriteKind.Food)
     Title.setPosition(81, 32)
     Title.scale = 0.8
-    tiles.setCurrentTilemap(tilemap`MenuScreen`)
     Menu = miniMenu.createMenu(
     miniMenu.createMenuItem("1", assets.image`Info`),
     miniMenu.createMenuItem("2", assets.image`Play`),
@@ -37,26 +36,29 @@ function Menu2 () {
     Menu.setPosition(77, 75)
     Menu.onButtonPressed(controller.A, function (selection, selectedIndex) {
         if (selectedIndex == 1) {
-            Menu.close()
+            sprites.destroy(Title)
             Level(1)
+            Menu.close()
         }
     })
 }
 function Level (Id: number) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     if (Id == 1) {
-        tiles.setCurrentTilemap(tilemap`Level1`)
+        continue;
+    } else if (Id == 2) {
+        tiles.setCurrentTilemap(tilemap`Level2`)
     }
     Playar = sprites.create(assets.image`Player`, SpriteKind.Player)
+    cameraOffsetScene.cameraFollowWithOffset(Playar, 40, 0)
+    InLevel = 1
+    Playar.vx = 110
+    tiles.placeOnTile(Playar, tiles.getTileLocation(0, 14))
+    Playar.vy = 150
     Progress = statusbars.create(90, 8, StatusBarKind.Energy)
     Progress.setColor(7, 0)
     Progress.value = 0
     Progress.setPosition(80, 17)
-    Playar.vx = 110
-    tiles.placeOnTile(Playar, tiles.getTileLocation(0, 14))
-    cameraOffsetScene.cameraFollowWithOffset(Playar, 40, 0)
-    Playar.vy = 150
-    InLevel = 1
 }
 statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.GTE, statusbars.ComparisonType.Percentage, 100, function (status) {
     game.gameOver(true)
@@ -67,10 +69,9 @@ let Progress: StatusBarSprite = null
 let Playar: Sprite = null
 let InLevel = 0
 InLevel = 0
+tiles.setCurrentTilemap(tilemap`Level1`)
 Menu2()
 forever(function () {
-    if (InLevel == 1) {
-        pause(tileUtil.tilemapProperty(tileUtil.currentTilemap(), tileUtil.TilemapProperty.PixelWidth) / 10)
-        Progress.value += 1
-    }
+    pause(tileUtil.tilemapProperty(tileUtil.currentTilemap(), tileUtil.TilemapProperty.PixelWidth) / 10)
+    Progress.value += 1
 })
