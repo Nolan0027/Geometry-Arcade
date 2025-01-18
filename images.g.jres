@@ -4,16 +4,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Player"
     },
-    "image2": {
-        "data": "hwQQABAAAAAA8P////8PAAD/d/d/d/cA8H/3D/B/dw//d/cAAP93D393DwAA8Hf3f//w//8Pf/d/D/CZmQ9w938P8JmZD/D3fw/wmZkP8Pd/D/CfmQ9w93/3AP//AH/38HcPAADwd/8Af/f//393DwB/d3d3d/cAAPB3d3f3DwAA8P///wAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Jump"
-    },
-    "image1": {
-        "data": "hwQQABAAAAAA8P////8PAAB/d/d/d/8A8Hf3D/B/9w/wd/8AAH93/393DwAA8Hf3f/fw//8P//d/B/CZmQ/w938P8JmZD/D3fw/wmZkP8Pd/B/CZ+Q/w93/3AP//AH/3/3cPAADwdw/wd/f//3/3AAB/d3d3d/cAAPB/d3d3DwAAAAD///8PAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Jump0"
-    },
     "tEpsbQu?ZI@KkdZH[tPn": {
         "data": "hwQPAA8AAAD///d/d/f/D5+ZX/V3l5kPn5lf9XefmQ+f+VV/9/WZD59fVX/3VZ8P91X/9V//dwd3X/Vf9Xd3B3f3f1/1d3cHd3f/9V9/dwd391V/9/V3B5+ZX393X58Pn5n3d3f3mQ+fmXd3d5eZD5+Zd3d3l5kP//93d3f3/w8=",
         "mimeType": "image/x-mkcd-f4",
@@ -33,6 +23,21 @@
         "data": "hwQUABQAAAD///93d3d3////AACfmZl3d3d3mZn5AACfmZl3d3d3mZn5AACfmZl3d3d3mZn5AACfmZl3d3d3mZn5AACf+f///////5/5AACfX1VVVVVVVfX5AAB391VVVVVVVX93AAB3d19VVVVV9Xd3AAB3d19VVVVV9Xd3AAB3d/dVVVVVf3d3AAB3d/dVVVVVf3d3AAB3d3dfVVX1d3d3AACfmZlfVVX1mZn5AACfmZn3VVV/mZn5AACfmZn3VVV/mZn5AACfmZl3X/V3mZn5AACfmZl39393mZn5AACfmZl3d3d3mZn5AAD///93d3d3////AAA=",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Play"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAA8P////8PAAD/d/d/d/cA8H/3D/B/dw//d/cAAP93D393DwAA8Hf3f//w//8Pf/d/D/CZmQ9w938P8JmZD/D3fw/wmZkP8Pd/D/CfmQ9w93/3AP//AH/38HcPAADwd/8Af/f//393DwB/d3d3d/cAAPB3d3f3DwAA8P///wAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Jump"
+    },
+    "image1": {
+        "data": "hwQQABAAAAAA8P////8PAAB/d/d/d/8A8Hf3D/B/9w/wd/8AAH93/393DwAA8Hf3f/fw//8P//d/B/CZmQ/w938P8JmZD/D3fw/wmZkP8Pd/B/CZ+Q/w93/3AP//AH/3/3cPAADwdw/wd/f//3/3AAB/d3d3d/cAAPB/d3d3DwAAAAD///8PAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Jump0"
+    },
+    "image5": {
+        "data": "hwQQABAAAAAAAAAAAAB3BwD///////93AH93d3d393cAf//////3dwB/DwAA8Pd3AH8P///w93cAfw+f+fD3dwB/D5/58Pd3AH8P///w93cAfw8AAPD3dwB///////d3AH93d3d393cA////////dwAAAJCZeXd3AAAAAABwd3cAAAAAAAB3Bw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "PlayerShip"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
