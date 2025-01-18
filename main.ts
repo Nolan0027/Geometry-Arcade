@@ -23,7 +23,7 @@ scene.setBackgroundColor(9)
 tiles.setCurrentTilemap(tilemap`Level1`)
 Playar.setPosition(10, 120)
 Playar.vy = 100
-let Progress = statusbars.create(70, 8, StatusBarKind.Energy)
+let Progress = statusbars.create(90, 8, StatusBarKind.Energy)
 Progress.setColor(7, 0)
 Progress.value = 0
 Progress.setPosition(80, 17)

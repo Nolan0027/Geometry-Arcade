@@ -9,11 +9,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Jump"
     },
-    "i#~e3(y_3": {
-        "data": "hwQQABAAAAAAABEAEREBAAD//xZmFhEB8HeXERH3BgF/d2dmYXdvEH93ZhmZd/cGf3eWZhF2dw9/d5GRGXZ3H/+XlpERdvcWEBGWlpF29xYBkZZhcX/3BhCWYZl3bx8BABFhdnf3GQEAERZ5d/cRAQAAYHd39wABEBBwd3cfEQAAAHB39wEBAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Die"
-    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
