@@ -4,10 +4,15 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Player"
     },
+    "image2": {
+        "data": "hwQQABAAAAAA8P////8PAAD/d/d/d/cA8H/3D/B/dw//d/cAAP93D393DwAA8Hf3f//w//8Pf/d/D/CZmQ9w938P8JmZD/D3fw/wmZkP8Pd/D/CfmQ9w93/3AP//AH/38HcPAADwd/8Af/f//393DwB/d3d3d/cAAPB3d3f3DwAA8P///wAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Jump"
+    },
     "i#~e3(y_3": {
         "data": "hwQQABAAAAAAABEAEREBAAD//xZmFhEB8HeXERH3BgF/d2dmYXdvEH93ZhmZd/cGf3eWZhF2dw9/d5GRGXZ3H/+XlpERdvcWEBGWlpF29xYBkZZhcX/3BhCWYZl3bx8BABFhdnf3GQEAERZ5d/cRAQAAYHd39wABEBBwd3cfEQAAAHB39wEBAA==",
         "mimeType": "image/x-mkcd-f4",
-        "displayName": "PlayerDie"
+        "displayName": "Die"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

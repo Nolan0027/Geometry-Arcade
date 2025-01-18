@@ -22,8 +22,27 @@ f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f
 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
 f f f f f f f f f f f f f f f f 
 `;
+            case "image2":
+            case "Jump":return img`
+. . . f f f f f f f f . . . . . 
+. . f f 7 7 7 7 7 7 7 f . . . . 
+. f f 7 7 f f f f f 7 7 f f . . 
+f f 7 7 7 f . . . . f 7 7 7 f f 
+f 7 7 7 f . . . . . . f 7 7 7 f 
+f 7 f f . f f f f f . . f 7 7 f 
+f 7 f . . f 9 9 9 f f . f 7 7 f 
+f f . . . f 9 9 9 9 f . f 7 7 f 
+f f . . . f 9 9 9 9 f . f 7 7 f 
+f 7 f . . f 9 9 9 9 f . f 7 7 f 
+f 7 f f . f f f f f . . f 7 7 . 
+f 7 7 f f . . . . . . f 7 7 f . 
+f 7 7 7 7 f . . . . f 7 7 7 f . 
+. f 7 7 7 7 7 f f 7 7 7 7 f . . 
+. . f f 7 7 7 7 7 7 7 f f . . . 
+. . . . f f f f f f f f . . . . 
+`;
             case "i#~e3(y_3":
-            case "PlayerDie":return img`
+            case "Die":return img`
 . . . f f f f f . 1 . . . . . . 
 . . f 7 7 7 7 f 1 . 1 . . . 1 . 
 . f 7 7 7 7 7 7 1 1 6 1 1 . . . 
