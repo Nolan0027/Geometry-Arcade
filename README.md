@@ -22,3 +22,22 @@ This image may take a few minutes to refresh.
 
 * for PXT/arcade
 <script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+
+Let Die = sprites.create(img`
+. . . f f f f f . 1 . . . . . . 
+. . f 7 7 7 7 f 1 . 1 . . . 1 . 
+. f 7 7 7 7 7 7 1 1 6 1 1 . . . 
+. f 7 7 7 7 7 9 1 9 9 1 1 . 1 . 
+1 f 7 7 6 6 1 6 6 6 1 1 6 . . . 
+1 f 9 6 6 9 9 9 9 9 6 6 1 6 7 7 
+. 6 1 6 9 6 1 1 6 1 9 6 9 7 7 7 
+. 1 1 6 1 6 9 9 9 6 9 7 7 7 7 7 
+1 6 1 1 9 1 9 1 1 1 7 7 7 7 7 7 
+1 6 1 6 9 1 1 1 9 7 7 7 7 7 7 f 
+1 6 7 7 7 6 6 6 6 f f 7 7 7 f 1 
+1 1 f 7 7 7 7 7 7 7 6 f f f 1 . 
+1 1 6 f 7 7 7 7 7 7 f 9 1 . 1 1 
+. 1 . 6 f 7 7 f f f 1 1 1 . 1 . 
+. 1 1 . 6 f f 6 6 6 1 1 1 1 . . 
+. . . 1 . . 1 1 1 . . . . . . . 
+`, SpriteKind.Player
