@@ -1,6 +1,7 @@
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     if (InLevel == 1 && (tiles.tileAtLocationEquals(location, assets.tile`Spike3`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike4`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike0`) || tiles.tileAtLocationEquals(location, assets.tile`Spike2`))) || (tiles.tileAtLocationEquals(location, assets.tile`Spike`) || Playar.isHittingTile(CollisionDirection.Right)))) {
         music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.UntilDone)
+        Gamemode = 1
         Progress.value = 0
         tiles.placeOnTile(Playar, tiles.getTileLocation(0, 14))
         Playar.setImage(assets.image`Player`)
@@ -19,14 +20,17 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 pause(370)
                 Playar.setImage(assets.image`Player`)
             } else if (Gamemode == 2) {
-                while (controller.A.isPressed()) {
-                    Playar.vy = 100
-                    Playar.startEffect(effects.spray)
-                }
-                effects.clearParticles(Playar)
+                Playar.startEffect(effects.trail)
                 Playar.vy = -100
+                pause(200)
             }
         }
+    }
+})
+controller.A.onEvent(ControllerButtonEvent.Released, function () {
+    if (Gamemode == 2) {
+        effects.clearParticles(Playar)
+        Playar.vy = 100
     }
 })
 function Menu2 () {
@@ -42,7 +46,6 @@ function Menu2 () {
     Menu.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.IconOnly, 1)
     Menu.setMenuStyleProperty(miniMenu.MenuStyleProperty.Rows, 1)
     Menu.setMenuStyleProperty(miniMenu.MenuStyleProperty.Columns, 3)
-    Menu.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Alignment, 1)
     Menu.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 0)
     Menu.setDimensions(100, 50)
     Menu.setPosition(77, 75)
@@ -54,10 +57,6 @@ function Menu2 () {
         }
     })
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Ship`, function (sprite, location) {
-    Gamemode = 2
-    Playar.setImage(assets.image`PlayerShip`)
-})
 function Level (Id: number) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     if (Id == 1) {
@@ -76,8 +75,19 @@ function Level (Id: number) {
     Progress.setPosition(80, 17)
     InLevel = 1
 }
+controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
+	
+})
 statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.GTE, statusbars.ComparisonType.Percentage, 100, function (status) {
     game.gameOver(true)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cube`, function (sprite, location) {
+    Gamemode = 1
+    Playar.setImage(assets.image`Player`)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Ship`, function (sprite, location) {
+    Gamemode = 2
+    Playar.setImage(assets.image`PlayerShip`)
 })
 let Menu: miniMenu.MenuSprite = null
 let Title: Sprite = null

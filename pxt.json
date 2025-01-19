@@ -4,7 +4,6 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "Timers": "github:microsoft/arcade-timers#v1.1.0",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
         "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0",
         "arcade-camera-offset": "github:riknoll/arcade-camera-offset#50dcab790691a38799aa99390f9cced2d62fbc21",

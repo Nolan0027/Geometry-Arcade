@@ -94,6 +94,12 @@
         "tilemapTile": true,
         "displayName": "Ship"
     },
+    "tile15": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwd3cHAAAAd/f//393AHf///////93d/8PAADw/3f/dwcAAHB3//f/f3d39/9/APf/////fwAAAHB/9wcAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Cube"
+    },
     "level1": {
         "id": "level1",
         "mimeType": "application/mkcd-tilemap",
