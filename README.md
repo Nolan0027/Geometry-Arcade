@@ -1,5 +1,6 @@
 Open this page at [https://nolan0027.github.io/geometry-arcade](https://nolan0027.github.io/geometry-arcade)
-- or https://arcade.makecode.com/S53227-65325-23930-30433
+- or https://makecode.com/_JzVCKkPjvKmX
+- or (1.1)-> https://arcade.makecode.com/S53227-65325-23930-30433
 
 This is a fanmade recreation of Robert "Robtop" Topala's Geometry Dash, one of my favorite games, into MakeCode Arcade.
 
@@ -7,10 +8,10 @@ Bugs
 - Player doesn't move after dying>~2
 
 Plans
-- Main menu [0/1]
+- Main menu [1/1]
 - Back on track [0/1]
 - Icon customization [0/1]
-- Icons [0/10]
+- Icons [1/10]
 
 ## Blocks preview
 This image shows the blocks code from the last commit in master.
