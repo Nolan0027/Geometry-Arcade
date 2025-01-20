@@ -76,12 +76,10 @@ function Editor () {
     Select.setPosition(11, 95)
     Select.scale = 2
     Back = sprites.create(assets.image`X`, SpriteKind.Player)
-    Back.setPosition(10, 9)
-    tiles.setCurrentTilemap(tilemap`Editor`)
-    SelVar = 1
+    Back.setPosition(8, 6)
     Playar = sprites.create(assets.image`Crosshair`, SpriteKind.Player)
     scene.cameraFollowSprite(Playar)
-    Playar.setPosition(14, 100)
+    Playar.setPosition(16, 118)
     Playar.setFlag(SpriteFlag.GhostThroughWalls, true)
     SelFrame.setFlag(SpriteFlag.RelativeToCamera, true)
     Select.setFlag(SpriteFlag.RelativeToCamera, true)
@@ -91,56 +89,43 @@ function Editor () {
 }
 controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
     if (Playtesting == 0) {
+        sprites.destroy(Playar)
+        sprites.destroy(Select)
+        sprites.destroy(SelFrame)
+        sprites.destroy(Back)
         Playtesting = 1
+        Gamemode = 1
         InLevel = 1
         InEditor = 0
         Playar = sprites.create(assets.image`Player`, SpriteKind.Player)
         tiles.placeOnRandomTile(Playar, assets.tile`StartPos`)
         Playar.vx = 110
-        sprites.destroy(Select)
-        sprites.destroy(SelFrame)
-        sprites.destroy(Back)
         cameraOffsetScene.cameraFollowWithOffset(Playar, 40, 0)
-        pause(500)
     }
 })
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     if (InLevel == 1 && (tiles.tileAtLocationEquals(location, assets.tile`Spike3`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike4`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike0`) || tiles.tileAtLocationEquals(location, assets.tile`Spike2`))) || (tiles.tileAtLocationEquals(location, assets.tile`Spike`) || Playar.isHittingTile(CollisionDirection.Right)))) {
-        if (InEditor == 0) {
+        if (Playtesting == 0) {
             Gamemode = 1
             Progress.value = 0
             tiles.placeOnTile(Playar, tiles.getTileLocation(SelVar, 14))
             Playar.vx = 110
             effects.clearParticles(Playar)
         } else {
+            sprites.destroy(DiedAt)
+            DiedAt = sprites.create(assets.image`X`, SpriteKind.Player)
+            DiedAt.setPosition(Playar.x, Playar.y)
             Playtesting = 0
-            InEditor = 1
             InLevel = 0
-            sprites.destroy(Playar)
-            SelFrame = sprites.create(assets.image`SelFrame`, SpriteKind.Player)
-            SelFrame.scale = 3
-            SelFrame.setPosition(80, 105)
-            Select = sprites.create(assets.image`Selector`, SpriteKind.Player)
-            Select.setPosition(11, 95)
-            Select.scale = 2
-            Back = sprites.create(assets.image`X`, SpriteKind.Player)
-            Back.setPosition(10, 9)
-            Playar = sprites.create(assets.image`Crosshair`, SpriteKind.Player)
-            scene.cameraFollowSprite(Playar)
-            Playar.setPosition(14, 100)
-            Playar.setFlag(SpriteFlag.GhostThroughWalls, true)
-            SelFrame.setFlag(SpriteFlag.RelativeToCamera, true)
-            Select.setFlag(SpriteFlag.RelativeToCamera, true)
-            Back.setFlag(SpriteFlag.RelativeToCamera, true)
-            controller.moveSprite(Playar, 100, 100)
+            Editor()
         }
     }
 })
 controller.B.onEvent(ControllerButtonEvent.Repeated, function () {
     if (game.askForNumber("Exit?, 1=Yes") == 1) {
-    	
-    } else {
         game.reset()
+    } else {
+    	
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Cube`, function (sprite, location) {
@@ -164,12 +149,31 @@ function Menu2 () {
     Menu.setDimensions(100, 50)
     Menu.setPosition(77, 75)
     Menu.onButtonPressed(controller.A, function (selection, selectedIndex) {
-        if (selectedIndex == 1) {
+        if (selectedIndex == 0) {
+            game.showLongText("1/6, To jump/place a tile in editor: A", DialogLayout.Center)
+            game.showLongText("2/6, Press reset if game bugs", DialogLayout.Center)
+            game.showLongText("3/6, To exit editor: Long press B", DialogLayout.Center)
+            game.showLongText("4/6, To playtest: Long press A", DialogLayout.Center)
+            game.showLongText("5/6, To cycle tile selector: A+Up", DialogLayout.Center)
+            game.showLongText("6/6, Game was made by Nolan0027", DialogLayout.Center)
+        } else if (selectedIndex == 1) {
             Menu.close()
             LvlSel = miniMenu.createMenu(
             miniMenu.createMenuItem("Back", assets.image`X`),
-            miniMenu.createMenuItem("Stereo Madness", assets.image`Easy`)
+            miniMenu.createMenuItem("Stereo Madness", assets.image`Easy`),
+            miniMenu.createMenuItem("Back on track", assets.image`Easy`),
+            miniMenu.createMenuItem("Polargiest", assets.image`Normal`),
+            miniMenu.createMenuItem("Dry out", assets.image`Normal`),
+            miniMenu.createMenuItem("Base after base", assets.image`Hard`),
+            miniMenu.createMenuItem("Cant let go", assets.image`Hard`),
+            miniMenu.createMenuItem("Jumper", assets.image`Harder`),
+            miniMenu.createMenuItem("Time machine", assets.image`Harder`),
+            miniMenu.createMenuItem("Cycles", assets.image`Harder`),
+            miniMenu.createMenuItem("xStep", assets.image`Insane`),
+            miniMenu.createMenuItem("Zodiac", assets.image`Demon`)
             )
+            LvlSel.setDimensions(100, 80)
+            LvlSel.setPosition(73, 78)
             LvlSel.onButtonPressed(controller.A, function (selection, selectedIndex) {
                 if (selectedIndex == 0) {
                     Menu2()
@@ -191,6 +195,7 @@ function Menu2 () {
                 } else if (selectedIndex == 1) {
                     sprites.destroy(Title)
                     Misc.close()
+                    tiles.setCurrentTilemap(tilemap`Editor`)
                     Editor()
                 }
             })
@@ -265,13 +270,14 @@ statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.GTE
 let Misc: miniMenu.MenuSprite = null
 let LvlSel: miniMenu.MenuSprite = null
 let Menu: miniMenu.MenuSprite = null
+let DiedAt: Sprite = null
 let Back: Sprite = null
 let Select: Sprite = null
 let SelFrame: Sprite = null
 let Title: Sprite = null
-let SelVar = 0
 let Playtesting = 0
 let Playar: Sprite = null
+let SelVar = 0
 let Gamemode = 0
 let InLevel = 0
 let InEditor = 0
@@ -280,6 +286,7 @@ Progress = statusbars.create(0, 0, StatusBarKind.Energy)
 InEditor = 0
 InLevel = 0
 Gamemode = 1
+SelVar = 1
 tiles.setCurrentTilemap(tilemap`Level1`)
 Menu2()
 forever(function () {
