@@ -18,51 +18,129 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             }
         }
     } else {
-        if (Playar.overlapsWith(Back)) {
-            tiles.setCurrentTilemap(tilemap`Level1`)
-            sprites.destroy(Playar)
-            sprites.destroy(SelBlock)
-            sprites.destroy(SelFrame)
-            sprites.destroy(Back)
-            Menu2()
-        } else if (Playar.overlapsWith(SelBlock)) {
-            SelVar = 1
-        } else {
+        if (Playtesting == 0 && !(tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`Ground`) || (tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`Ground0`) || (tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`Ground1`) || (tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`Ground2`) || tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`StartPos`)))))) {
             if (SelVar == 1) {
                 tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Block`)
                 tiles.setWallAt(Playar.tilemapLocation(), true)
+            } else if (SelVar == 2) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Block0`)
+                tiles.setWallAt(Playar.tilemapLocation(), true)
+            } else if (SelVar == 3) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Slab`)
+                tiles.setWallAt(Playar.tilemapLocation(), true)
+            } else if (SelVar == 4) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Block2`)
+                tiles.setWallAt(Playar.tilemapLocation(), true)
+            } else if (SelVar == 5) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Spike`)
+                tiles.setWallAt(Playar.tilemapLocation(), true)
+            } else if (SelVar == 6) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Spike4`)
+                tiles.setWallAt(Playar.tilemapLocation(), true)
+            } else if (SelVar == 7) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Deco`)
+                tiles.setWallAt(Playar.tilemapLocation(), true)
+            } else if (SelVar == 8) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Spike2`)
+                tiles.setWallAt(Playar.tilemapLocation(), true)
+            } else if (SelVar == 9) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Spike3`)
+                tiles.setWallAt(Playar.tilemapLocation(), true)
+            } else if (SelVar == 10) {
+                tileUtil.replaceAllTiles(assets.tile`StartPos`, assets.tile`transparency16`)
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`StartPos`)
+                tiles.setWallAt(Playar.tilemapLocation(), false)
+            } else if (SelVar == 11) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Ship`)
+                tiles.setWallAt(Playar.tilemapLocation(), false)
+            } else if (SelVar == 12) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Cube`)
+                tiles.setWallAt(Playar.tilemapLocation(), false)
             }
         }
     }
 })
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (InEditor == 1 && !(tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`Ground`) || (tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`Ground0`) || (tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`Ground1`) || (tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`Ground2`) || tiles.tileAtLocationEquals(Playar.tilemapLocation(), assets.tile`StartPos`)))))) {
+        tiles.setTileAt(Playar.tilemapLocation(), assets.tile`transparency16`)
+        tiles.setWallAt(Playar.tilemapLocation(), false)
+    }
+})
 function Editor () {
     sprites.destroy(Playar)
+    sprites.destroy(Title)
     SelFrame = sprites.create(assets.image`SelFrame`, SpriteKind.Player)
     SelFrame.scale = 3
     SelFrame.setPosition(80, 105)
-    SelBlock = sprites.create(assets.image`SelBlock`, SpriteKind.Player)
-    SelBlock.setPosition(13, 95)
+    Select = sprites.create(assets.image`Selector`, SpriteKind.Player)
+    Select.setPosition(11, 95)
+    Select.scale = 2
     Back = sprites.create(assets.image`X`, SpriteKind.Player)
-    Back.setPosition(18, 21)
-    tiles.setCurrentTilemap(tilemap`Blankvoid`)
+    Back.setPosition(10, 9)
+    tiles.setCurrentTilemap(tilemap`Editor`)
     SelVar = 1
     Playar = sprites.create(assets.image`Crosshair`, SpriteKind.Player)
+    scene.cameraFollowSprite(Playar)
+    Playar.setPosition(14, 100)
     Playar.setFlag(SpriteFlag.GhostThroughWalls, true)
-    controller.moveSprite(Playar)
+    SelFrame.setFlag(SpriteFlag.RelativeToCamera, true)
+    Select.setFlag(SpriteFlag.RelativeToCamera, true)
+    Back.setFlag(SpriteFlag.RelativeToCamera, true)
+    controller.moveSprite(Playar, 100, 100)
     InEditor = 1
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (InEditor == 1) {
-        tiles.setTileAt(Playar.tilemapLocation(), assets.tile`StartPos`)
+controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
+    if (Playtesting == 0) {
+        Playtesting = 1
+        InLevel = 1
+        InEditor = 0
+        Playar = sprites.create(assets.image`Player`, SpriteKind.Player)
+        tiles.placeOnRandomTile(Playar, assets.tile`StartPos`)
+        Playar.vx = 110
+        sprites.destroy(Select)
+        sprites.destroy(SelFrame)
+        sprites.destroy(Back)
+        cameraOffsetScene.cameraFollowWithOffset(Playar, 40, 0)
+        pause(500)
     }
 })
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     if (InLevel == 1 && (tiles.tileAtLocationEquals(location, assets.tile`Spike3`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike4`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike0`) || tiles.tileAtLocationEquals(location, assets.tile`Spike2`))) || (tiles.tileAtLocationEquals(location, assets.tile`Spike`) || Playar.isHittingTile(CollisionDirection.Right)))) {
-        Gamemode = 1
-        music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.UntilDone)
-        Progress.value = 0
-        tiles.placeOnTile(Playar, tiles.getTileLocation(0, 14))
-        Playar.vx = 110
+        if (InEditor == 0) {
+            Gamemode = 1
+            Progress.value = 0
+            tiles.placeOnTile(Playar, tiles.getTileLocation(SelVar, 14))
+            Playar.vx = 110
+            effects.clearParticles(Playar)
+        } else {
+            Playtesting = 0
+            InEditor = 1
+            InLevel = 0
+            sprites.destroy(Playar)
+            SelFrame = sprites.create(assets.image`SelFrame`, SpriteKind.Player)
+            SelFrame.scale = 3
+            SelFrame.setPosition(80, 105)
+            Select = sprites.create(assets.image`Selector`, SpriteKind.Player)
+            Select.setPosition(11, 95)
+            Select.scale = 2
+            Back = sprites.create(assets.image`X`, SpriteKind.Player)
+            Back.setPosition(10, 9)
+            Playar = sprites.create(assets.image`Crosshair`, SpriteKind.Player)
+            scene.cameraFollowSprite(Playar)
+            Playar.setPosition(14, 100)
+            Playar.setFlag(SpriteFlag.GhostThroughWalls, true)
+            SelFrame.setFlag(SpriteFlag.RelativeToCamera, true)
+            Select.setFlag(SpriteFlag.RelativeToCamera, true)
+            Back.setFlag(SpriteFlag.RelativeToCamera, true)
+            controller.moveSprite(Playar, 100, 100)
+        }
+    }
+})
+controller.B.onEvent(ControllerButtonEvent.Repeated, function () {
+    if (game.askForNumber("Exit?, 1=Yes") == 1) {
+    	
+    } else {
+        game.reset()
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Cube`, function (sprite, location) {
@@ -141,13 +219,44 @@ function Level (Id: number) {
     Progress.setPosition(80, 17)
     InLevel = 1
 }
-controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
-	
-})
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     if (Gamemode == 2) {
         effects.clearParticles(Playar)
         Playar.vy = 100
+    }
+})
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (controller.A.isPressed()) {
+        if (SelVar != 12) {
+            SelVar += 1
+        } else {
+            SelVar = 1
+        }
+        if (SelVar == 1) {
+            Select.setImage(assets.image`Selector`)
+        } else if (SelVar == 2) {
+            Select.setImage(assets.image`SelBlock2`)
+        } else if (SelVar == 3) {
+            Select.setImage(assets.image`SelSlab`)
+        } else if (SelVar == 4) {
+            Select.setImage(assets.image`SelBlock0`)
+        } else if (SelVar == 5) {
+            Select.setImage(assets.image`SelSpike`)
+        } else if (SelVar == 6) {
+            Select.setImage(assets.image`SelSpike0`)
+        } else if (SelVar == 7) {
+            Select.setImage(assets.image`SelDeco`)
+        } else if (SelVar == 8) {
+            Select.setImage(assets.image`SelSpike2`)
+        } else if (SelVar == 9) {
+            Select.setImage(assets.image`SelSpike1`)
+        } else if (SelVar == 10) {
+            Select.setImage(assets.image`SelStart`)
+        } else if (SelVar == 11) {
+            Select.setImage(assets.image`SelShip`)
+        } else if (SelVar == 12) {
+            Select.setImage(assets.image`SelCube`)
+        }
     }
 })
 statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.GTE, statusbars.ComparisonType.Percentage, 100, function (status) {
@@ -156,17 +265,19 @@ statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.GTE
 let Misc: miniMenu.MenuSprite = null
 let LvlSel: miniMenu.MenuSprite = null
 let Menu: miniMenu.MenuSprite = null
+let Back: Sprite = null
+let Select: Sprite = null
+let SelFrame: Sprite = null
 let Title: Sprite = null
 let SelVar = 0
-let SelFrame: Sprite = null
-let SelBlock: Sprite = null
-let Back: Sprite = null
+let Playtesting = 0
 let Playar: Sprite = null
-let InEditor = 0
 let Gamemode = 0
 let InLevel = 0
+let InEditor = 0
 let Progress: StatusBarSprite = null
 Progress = statusbars.create(0, 0, StatusBarKind.Energy)
+InEditor = 0
 InLevel = 0
 Gamemode = 1
 tiles.setCurrentTilemap(tilemap`Level1`)

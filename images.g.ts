@@ -3,25 +3,6 @@ namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "Q2Zmq05oR0Sr]K%:-dMn":
-            case "Player":return img`
-f f f f f f f f f f f f f f f f 
-f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-f 7 7 f f f f f f f f f f 7 7 f 
-f 7 7 f . . . . . . . . f 7 7 f 
-f 7 7 f . f f f f f f . f 7 7 f 
-f 7 7 f . f 9 9 9 9 f . f 7 7 f 
-f 7 7 f . f 9 9 9 9 f . f 7 7 f 
-f 7 7 f . f 9 9 9 9 f . f 7 7 f 
-f 7 7 f . f 9 9 9 9 f . f 7 7 f 
-f 7 7 f . f f f f f f . f 7 7 f 
-f 7 7 f . . . . . . . . f 7 7 f 
-f 7 7 f f f f f f f f f f 7 7 f 
-f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-f f f f f f f f f f f f f f f f 
-`;
             case "tEpsbQu?ZI@KkdZH[tPn":
             case "Misc":return img`
 f f f f f 7 7 7 7 7 f f f f f 
@@ -179,19 +160,6 @@ f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f
 2 2 2 2 . . . . . . . . 2 2 2 2 
 2 2 2 . . . . . . . . . . 2 2 2 
 `;
-            case "image8":
-            case "Normal":return img`
-. f f f 8 8 f f f . 
-. 8 7 7 7 7 7 7 8 . 
-8 7 1 f 7 7 1 f 7 8 
-8 7 f f 7 7 f f 7 8 
-8 7 7 7 7 7 7 7 7 8 
-8 7 7 7 7 7 7 7 7 8 
-8 f 7 7 7 7 7 7 f 8 
-8 7 f f f f f f 7 8 
-. 8 7 7 7 7 7 7 8 . 
-. . 8 8 8 8 8 8 . . 
-`;
             case "image9":
             case "Hard":return img`
 . f f f 8 8 f f f . 
@@ -297,25 +265,6 @@ f 8 9 9 9 9 9 9 8 f
 . 8 9 9 9 9 9 9 8 . 
 . . 8 8 8 8 8 8 . . 
 `;
-            case "image15":
-            case "SelBlock":return img`
-f f f f f f f f f f f f f f f f 
-f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
-f 4 f f f f f f f f f f f f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f b b b b b b b b b b f 4 f 
-f 4 f f f f f f f f f f f f 4 f 
-f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
-f f f f f f f f f f f f f f f f 
-`;
             case "image16":
             case "SelFrame":return img`
 fffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -334,6 +283,216 @@ fffffffffffffffffffffffffffffffffffffffffffffffffffffff
 444444444444444444444444444444444444444444444444444444f
 444444444444444444444444444444444444444444444444444444f
 fffffffffffffffffffffffffffffffffffffffffffffffffffffff
+`;
+            case "Q2Zmq05oR0Sr]K%:-dMn":
+            case "Player":return img`
+f f f f f f f f f f f f f f 
+f 7 7 7 7 7 7 7 7 7 7 7 7 f 
+f 7 7 7 7 7 7 7 7 7 7 7 7 f 
+f 7 7 f f f f f f f f 7 7 f 
+f 7 7 f . . . . . . f 7 7 f 
+f 7 7 f . f f f f . f 7 7 f 
+f 7 7 f . f 9 9 f . f 7 7 f 
+f 7 7 f . f 9 9 f . f 7 7 f 
+f 7 7 f . f f f f . f 7 7 f 
+f 7 7 f . . . . . . f 7 7 f 
+f 7 7 f f f f f f f f 7 7 f 
+f 7 7 7 7 7 7 7 7 7 7 7 7 f 
+f 7 7 7 7 7 7 7 7 7 7 7 7 f 
+f f f f f f f f f f f f f f 
+`;
+            case "image8":
+            case "Normal":return img`
+. f f f 8 8 f f f . 
+. 8 7 7 7 7 7 7 8 . 
+8 7 1 f 7 7 1 f 7 8 
+8 7 f f 7 7 f f 7 8 
+8 7 7 7 7 7 7 7 7 8 
+8 7 7 7 7 7 7 7 7 8 
+8 f 7 7 7 7 7 7 f 8 
+8 7 f f f f f f 7 8 
+. 8 7 7 7 7 7 7 8 . 
+. . 8 8 8 8 8 8 . . 
+`;
+            case "image18":
+            case "SelStart":return img`
+f f f f f f f f f f f f 
+f 9 9 9 9 9 4 9 9 9 9 f 
+f 9 4 4 4 4 4 9 4 4 9 f 
+f 9 4 4 4 4 4 9 4 4 9 f 
+f 9 4 4 4 4 4 9 4 4 9 f 
+f 9 4 4 4 4 4 9 9 9 9 f 
+f 9 9 9 9 9 4 9 4 4 4 f 
+f 4 4 4 4 9 4 9 4 4 4 f 
+f 4 4 4 4 9 4 9 4 4 4 f 
+f 4 4 4 4 9 4 9 4 4 4 f 
+f 9 9 9 9 9 4 9 4 4 9 f 
+f f f f f f f f f f f f 
+`;
+            case "image15":
+            case "Selector":return img`
+f f f f f f f f f f f f 
+f c c c c c c c c c c f 
+f c c c c c c c c c c f 
+f c c c c c c c c c c f 
+f c c c c c c c c c c f 
+f c c c c c c c c c c f 
+f b b b b b b b b b b f 
+f b b b b b b b b b b f 
+f b b b b b b b b b b f 
+f b b b b b b b b b b f 
+f b b b b b b b b b b f 
+f f f f f f f f f f f f 
+`;
+            case "image17":
+            case "SelSlab":return img`
+f f f f f f f f f f f f 
+f b b b b b b b b b b f 
+f b b b b b b b b b b f 
+f c c c c c c c c c c f 
+f f f f f f f f f f f f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f f f f f f f f f f f f 
+`;
+            case "image19":
+            case "SelBlock2":return img`
+f f f f f f f f f f f f 
+f b b c b b b b c b b f 
+f b b c b b b b c b b f 
+f c c c c c c c c c c f 
+f b b c b b b b c b b f 
+f b b c b b b b c b b f 
+f b b c b b b b c b b f 
+f b b c b b b b c b b f 
+f c c c c c c c c c c f 
+f b b c b b b b c b b f 
+f b b c b b b b c b b f 
+f f f f f f f f f f f f 
+`;
+            case "image20":
+            case "SelBlock0":return img`
+f f f f f f f f f f f f 
+f d d f d d d d f d d f 
+f d d f d d d d f d d f 
+f f f f f f f f f f f f 
+f d d f d d d d f d d f 
+f d d f d d d d f d d f 
+f d d f d d d d f d d f 
+f d d f d d d d f d d f 
+f f f f f f f f f f f f 
+f d d f d d d d f d d f 
+f d d f d d d d f d d f 
+f f f f f f f f f f f f 
+`;
+            case "image21":
+            case "SelSpike":return img`
+f f f f f f f f f f f f 
+f . . . . . . . . . . f 
+f . . . . d . . . . . f 
+f . . . d c d . . . . f 
+f . . . d c d . . . . f 
+f . . d c c c d . . . f 
+f . . d c c c d . . . f 
+f . d c c c c c d . . f 
+f . d b b b b b d . . f 
+f d b b b b b b b d . f 
+f d b b b b b b b d . f 
+f f f f f f f f f f f f 
+`;
+            case "image22":
+            case "SelSpike0":return img`
+f f f f f f f f f f f f 
+f d b b b b b b b d . f 
+f d b b b b b b b d . f 
+f . d b b b b b d . . f 
+f . d c c c c c d . . f 
+f . . d c c c d . . . f 
+f . . d c c c d . . . f 
+f . . . d c d . . . . f 
+f . . . d c d . . . . f 
+f . . . . d . . . . . f 
+f . . . . . . . . . . f 
+f f f f f f f f f f f f 
+`;
+            case "image23":
+            case "SelDeco":return img`
+f f f f f f f f f f f f 
+f . . . . . . . . . . f 
+f . b b b . . . . . . f 
+f b . b . b . . . . . f 
+f b b b b b . . . . . f 
+f . b b b . . . . . . f 
+f . . f . . . . . . . f 
+f . . f . . . . . . . f 
+f . . f . . . . . . . f 
+f . f f f . . . . . . f 
+f . f f f . . . . . . f 
+f f f f f f f f f f f f 
+`;
+            case "image24":
+            case "SelSpike2":return img`
+f f f f f f f f f f f f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f f f f f . . . f f f f 
+f f f f f f f f f f f f 
+f f f f f f f f f f f f 
+`;
+            case "image25":
+            case "SelSpike1":return img`
+f f f f f f f f f f f f 
+f . . . . . . . . . . f 
+f . . . . . . . . . . f 
+f . . 3 . . . . . . . f 
+f . . 3 3 . . . . 3 . f 
+f . 3 3 3 . . . 3 3 . f 
+f . 3 3 3 3 . . 3 3 3 f 
+f 3 3 3 3 3 . 3 3 3 3 f 
+f 3 3 3 3 3 3 3 3 3 3 f 
+f f f f f 3 3 3 f f f f 
+f f f f f f f f f f f f 
+f f f f f f f f f f f f 
+`;
+            case "image26":
+            case "SelShip":return img`
+f f f f f f f f f f f f 
+f . . . . . . f 3 f 3 f 
+f . . . . . . f 3 f f f 
+f . . . . . f 3 f f . f 
+f . . . . . f 3 f 3 . f 
+f . . . . . f f 3 . . f 
+f . . . . . f f 3 . . f 
+f . . . . . f 3 f 3 . f 
+f . . . . . f 3 f f . f 
+f . . . . . . f 3 f f f 
+f . . . . . . f 3 f 3 f 
+f f f f f f f f f f f f 
+`;
+            case "image27":
+            case "SelCube":return img`
+f f f f f f f f f f f f 
+f . . . . . . f 7 f 7 f 
+f . . . . . . f 7 f f f 
+f . . . . . f 7 f f . f 
+f . . . . . f 7 f 7 . f 
+f . . . . . f f 7 . . f 
+f . . . . . f f 7 . . f 
+f . . . . . f 7 f 7 . f 
+f . . . . . f 7 f f . f 
+f . . . . . . f 7 f f f 
+f . . . . . . f 7 f 7 f 
+f f f f f f f f f f f f 
 `;
         }
         return null;
