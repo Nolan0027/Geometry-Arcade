@@ -39,6 +39,61 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "PlayerShip"
     },
+    "image6": {
+        "data": "hwQQABAAAAAiAgAAAAAgIiIiAAAAACIiIiICAAAgIiIgIiIAACIiAgAiIgIgIiIAACAiIiIiAgAAACIiIiIAAAAAICIiAgAAAAAgIiICAAAAACIiIiIAAAAgIiIiIgIAACIiAiAiIgAgIiIAACIiAiIiAgAAICIiIiIAAAAAIiIiAgAAAAAgIg==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "X"
+    },
+    "image8": {
+        "data": "hwQKAAoAAAAAiIiIAAAAAI93d38IAAAAf/F394cAAAB//3f3hwAAAHh3d/eHAAAAeHd394cAAAB/8Xf3hwAAAH//d/eHAAAAj3d3fwgAAAAAiIiIAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Normal"
+    },
+    "image9": {
+        "data": "hwQKAAoAAADwiIiIAAAAAI9VVVUIAAAAX/FVVYUAAABf/1X1hQAAAFhVVfWFAAAAWFVV9YUAAABf8VX1hQAAAF//VVWFAAAAj1VVVQgAAADwiIiIAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Hard"
+    },
+    "image10": {
+        "data": "hwQKAAoAAAAAiIiIAAAAAI8iIiIIAAAAL/EiIo8AAAAv/yLyggAAAPgiIvKCAAAA+CIi8oIAAAAv8SLyggAAAC//IiKPAAAAjyIiIggAAAAAiIiIAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Harder"
+    },
+    "image11": {
+        "data": "hwQKAAoAAAAAiIiIAAAAAI8zM/MIAAAAP/Ez/48AAAD//zP/jwAAAPg/M/+PAAAA+D8z/48AAAD/8TP/jwAAAD//M/+PAAAAjzMz8wgAAAAAiIiIAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Insane"
+    },
+    "image12": {
+        "data": "hwQKAAwAAAD//////wAAAB/xIiIiDwAA8C93It3/AAAAL3Ii3f8AAAAvIiLd/wAAAC8iIt3/AAAAL3Ii3f8AAPAvdyLd/wAAH/EiIv8PAAD//////wAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Demon"
+    },
+    "image13": {
+        "data": "hwQQABAAAAD/////AAAAAB8REfEAAAAAHxER8QAAAAAfERHxAAAAAB8REfEAAAAAHxER8f////8fERHx7u7u/h8REfHu7u7+HxER8e7u7v4fERHx7u7u/h8REfH/////HxER8QAAAAAfERHxAAAAAB8REfEAAAAAHxER8QAAAAD/////AAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Hamer"
+    },
+    "image14": {
+        "data": "hwQQABAAAAD///////////8AAAAAAAD/Dw8AAAAA8PAP8AAAAAAP8A8ADwAA8ADwDwDwAAAPAPAPAAAP8AAA8A8AAPAPAADwDwAA8A8AAPAPAAAP8AAA8A8A8AAADwDwDwAPAADwAPAP8AAAAAAP8A8PAAAAAPDw/wAAAAAAAP///////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Crosshair"
+    },
+    "image7": {
+        "data": "hwQKAAoAAADwiIiIAAAAAI+Z+Z8IAAAAn/GZ/4kAAACf/5n/iQAAAJiZmf+JAAAAmJmZ/4kAAACf8Zn/iQAAAJ//mf+JAAAAj5n5nwgAAADwiIiIAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Easy"
+    },
+    "image15": {
+        "data": "hwQQABAAAAD//////////09ERERERET0T/////////RPv7u7u7v79E+/u7u7u/v0T7+7u7u7+/RPv7u7u7v79E+/u7u7u/v0T7+7u7u7+/RPv7u7u7v79E+/u7u7u/v0T7+7u7u7+/RPv7u7u7v79E/////////0T0RERERERPT//////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "SelBlock"
+    },
+    "image16": {
+        "data": "hwQ3ABAAAABPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPRPRERERERE9E9ERERERET0T0RERERERPT//////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "SelFrame"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

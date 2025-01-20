@@ -160,6 +160,181 @@ f f f f f f f f f f f f f 7 7 f
 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
 . f f f f f f f f f f f f f f . 
 `;
+            case "image6":
+            case "X":return img`
+2 2 2 . . . . . . . . . . 2 2 2 
+2 2 2 2 . . . . . . . . 2 2 2 2 
+2 2 2 2 2 . . . . . . 2 2 2 2 2 
+. 2 2 2 2 2 . . . . 2 2 2 2 2 . 
+. . 2 2 2 2 2 . . 2 2 2 2 2 . . 
+. . . 2 2 2 2 2 2 2 2 2 2 . . . 
+. . . . 2 2 2 2 2 2 2 2 . . . . 
+. . . . . 2 2 2 2 2 2 . . . . . 
+. . . . . 2 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 2 . . . . 
+. . . 2 2 2 2 2 2 2 2 2 2 . . . 
+. . 2 2 2 2 2 . . 2 2 2 2 2 . . 
+. 2 2 2 2 2 . . . . 2 2 2 2 2 . 
+2 2 2 2 2 . . . . . . 2 2 2 2 2 
+2 2 2 2 . . . . . . . . 2 2 2 2 
+2 2 2 . . . . . . . . . . 2 2 2 
+`;
+            case "image8":
+            case "Normal":return img`
+. f f f 8 8 f f f . 
+. 8 7 7 7 7 7 7 8 . 
+8 7 1 f 7 7 1 f 7 8 
+8 7 f f 7 7 f f 7 8 
+8 7 7 7 7 7 7 7 7 8 
+8 7 7 7 7 7 7 7 7 8 
+8 f 7 7 7 7 7 7 f 8 
+8 7 f f f f f f 7 8 
+. 8 7 7 7 7 7 7 8 . 
+. . 8 8 8 8 8 8 . . 
+`;
+            case "image9":
+            case "Hard":return img`
+. f f f 8 8 f f f . 
+f 8 5 5 5 5 5 5 8 f 
+8 5 1 f 5 5 1 f 5 8 
+8 5 f f 5 5 f f 5 8 
+8 5 5 5 5 5 5 5 5 8 
+8 5 5 5 5 5 5 5 5 8 
+8 5 5 5 5 5 5 5 5 8 
+8 5 5 f f f f 5 5 8 
+. 8 5 5 5 5 5 5 8 . 
+. . 8 8 8 8 8 8 . . 
+`;
+            case "image10":
+            case "Harder":return img`
+. f f f 8 8 f f f . 
+. 8 2 2 f f 2 2 8 . 
+8 2 1 f 2 2 1 f 2 8 
+8 2 f f 2 2 f f 2 8 
+8 2 2 2 2 2 2 2 2 8 
+8 2 2 2 2 2 2 2 2 8 
+8 2 2 2 2 2 2 2 2 8 
+8 2 2 f f f f 2 2 8 
+. 8 f 2 2 2 2 f 8 . 
+. . 8 8 8 8 8 8 . . 
+`;
+            case "image11":
+            case "Insane":return img`
+. f f f 8 8 f f f . 
+. 8 3 f f f f 3 8 . 
+8 3 1 f f f 1 f 3 8 
+8 3 f f 3 3 f f 3 8 
+8 3 3 3 3 3 3 3 3 8 
+8 3 3 3 3 3 3 3 3 8 
+8 3 f f f f f f 3 8 
+8 f f f f f f f f 8 
+. 8 f f f f f f 8 . 
+. . 8 8 8 8 8 8 . . 
+`;
+            case "image12":
+            case "Demon":return img`
+f f . . . . . . f f 
+f 1 f . . . . f 1 f 
+f 1 f f f f f f 1 f 
+f f 2 2 2 2 2 2 f f 
+f 2 7 2 2 2 2 7 2 f 
+f 2 7 7 2 2 7 7 2 f 
+f 2 2 2 2 2 2 2 2 f 
+f 2 2 2 2 2 2 2 2 f 
+f 2 d d d d d d f f 
+f 2 d d d d d d f f 
+. f f f f f f f f . 
+. . f f f f f f . . 
+`;
+            case "image13":
+            case "Hamer":return img`
+f f f f f f f f f f f f f f f f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+f f f f f f f f f f f f f f f f 
+. . . . . f e e e e f . . . . . 
+. . . . . f e e e e f . . . . . 
+. . . . . f e e e e f . . . . . 
+. . . . . f e e e e f . . . . . 
+. . . . . f e e e e f . . . . . 
+. . . . . f e e e e f . . . . . 
+. . . . . f e e e e f . . . . . 
+. . . . . f f f f f f . . . . . 
+`;
+            case "image14":
+            case "Crosshair":return img`
+f f f f f f f f f f f f f f f f 
+f f . . . . . . . . . . . . f f 
+f . f . . . . . . . . . . f . f 
+f . . f . . . . . . . . f . . f 
+f . . . f . . . . . . f . . . f 
+f . . . . f . . . . f . . . . f 
+f . . . . . f . . f . . . . . f 
+f . . . . . . f f . . . . . . f 
+f . . . . . . f f . . . . . . f 
+f . . . . . f . . f . . . . . f 
+f . . . . f . . . . f . . . . f 
+f . . . f . . . . . . f . . . f 
+f . . f . . . . . . . . f . . f 
+f . f . . . . . . . . . . f . f 
+f f . . . . . . . . . . . . f f 
+f f f f f f f f f f f f f f f f 
+`;
+            case "image7":
+            case "Easy":return img`
+. f f f 8 8 f f f . 
+f 8 9 9 9 9 9 9 8 f 
+8 9 1 f 9 9 1 f 9 8 
+8 9 f f 9 9 f f 9 8 
+8 9 9 9 9 9 9 9 9 8 
+8 f 9 9 9 9 9 9 f 8 
+8 f f f f f f f f 8 
+8 9 f f f f f f 9 8 
+. 8 9 9 9 9 9 9 8 . 
+. . 8 8 8 8 8 8 . . 
+`;
+            case "image15":
+            case "SelBlock":return img`
+f f f f f f f f f f f f f f f f 
+f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+f 4 f f f f f f f f f f f f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f b b b b b b b b b b f 4 f 
+f 4 f f f f f f f f f f f f 4 f 
+f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+f f f f f f f f f f f f f f f f 
+`;
+            case "image16":
+            case "SelFrame":return img`
+fffffffffffffffffffffffffffffffffffffffffffffffffffffff
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+444444444444444444444444444444444444444444444444444444f
+fffffffffffffffffffffffffffffffffffffffffffffffffffffff
+`;
         }
         return null;
     })

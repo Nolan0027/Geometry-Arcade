@@ -1,37 +1,73 @@
-scene.onHitWall(SpriteKind.Player, function (sprite, location) {
-    if (InLevel == 1 && (tiles.tileAtLocationEquals(location, assets.tile`Spike3`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike4`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike0`) || tiles.tileAtLocationEquals(location, assets.tile`Spike2`))) || (tiles.tileAtLocationEquals(location, assets.tile`Spike`) || Playar.isHittingTile(CollisionDirection.Right)))) {
-        music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.UntilDone)
-        Gamemode = 1
-        Progress.value = 0
-        tiles.placeOnTile(Playar, tiles.getTileLocation(0, 14))
-        Playar.setImage(assets.image`Player`)
-        Playar.vx = 110
-    }
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (InLevel == 1) {
-        while (controller.A.isPressed()) {
-            if (Gamemode == 1) {
-                Playar.vy = -150
-                Playar.setImage(assets.image`Jump`)
-                pause(370)
-                Playar.vy = 150
-                Playar.setImage(assets.image`Jump0`)
-                pause(370)
-                Playar.setImage(assets.image`Player`)
-            } else if (Gamemode == 2) {
-                Playar.startEffect(effects.trail)
-                Playar.vy = -100
-                pause(200)
+    if (InEditor == 0) {
+        if (InLevel == 1) {
+            while (controller.A.isPressed()) {
+                if (Gamemode == 1) {
+                    Playar.vy = -150
+                    Playar.setImage(assets.image`Jump`)
+                    pause(370)
+                    Playar.vy = 150
+                    Playar.setImage(assets.image`Jump0`)
+                    pause(370)
+                    Playar.setImage(assets.image`Player`)
+                } else if (Gamemode == 2) {
+                    Playar.startEffect(effects.trail)
+                    Playar.vy = -100
+                    pause(200)
+                }
+            }
+        }
+    } else {
+        if (Playar.overlapsWith(Back)) {
+            tiles.setCurrentTilemap(tilemap`Level1`)
+            sprites.destroy(Playar)
+            sprites.destroy(SelBlock)
+            sprites.destroy(SelFrame)
+            sprites.destroy(Back)
+            Menu2()
+        } else if (Playar.overlapsWith(SelBlock)) {
+            SelVar = 1
+        } else {
+            if (SelVar == 1) {
+                tiles.setTileAt(Playar.tilemapLocation(), assets.tile`Block`)
+                tiles.setWallAt(Playar.tilemapLocation(), true)
             }
         }
     }
 })
-controller.A.onEvent(ControllerButtonEvent.Released, function () {
-    if (Gamemode == 2) {
-        effects.clearParticles(Playar)
-        Playar.vy = 100
+function Editor () {
+    sprites.destroy(Playar)
+    SelFrame = sprites.create(assets.image`SelFrame`, SpriteKind.Player)
+    SelFrame.scale = 3
+    SelFrame.setPosition(80, 105)
+    SelBlock = sprites.create(assets.image`SelBlock`, SpriteKind.Player)
+    SelBlock.setPosition(13, 95)
+    Back = sprites.create(assets.image`X`, SpriteKind.Player)
+    Back.setPosition(18, 21)
+    tiles.setCurrentTilemap(tilemap`Blankvoid`)
+    SelVar = 1
+    Playar = sprites.create(assets.image`Crosshair`, SpriteKind.Player)
+    Playar.setFlag(SpriteFlag.GhostThroughWalls, true)
+    controller.moveSprite(Playar)
+    InEditor = 1
+}
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (InEditor == 1) {
+        tiles.setTileAt(Playar.tilemapLocation(), assets.tile`StartPos`)
     }
+})
+scene.onHitWall(SpriteKind.Player, function (sprite, location) {
+    if (InLevel == 1 && (tiles.tileAtLocationEquals(location, assets.tile`Spike3`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike4`) || (tiles.tileAtLocationEquals(location, assets.tile`Spike0`) || tiles.tileAtLocationEquals(location, assets.tile`Spike2`))) || (tiles.tileAtLocationEquals(location, assets.tile`Spike`) || Playar.isHittingTile(CollisionDirection.Right)))) {
+        Gamemode = 1
+        music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.UntilDone)
+        Progress.value = 0
+        tiles.placeOnTile(Playar, tiles.getTileLocation(0, 14))
+        Playar.vx = 110
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cube`, function (sprite, location) {
+    Gamemode = 1
+    Playar.setImage(assets.image`Player`)
 })
 function Menu2 () {
     scene.setBackgroundColor(9)
@@ -51,12 +87,42 @@ function Menu2 () {
     Menu.setPosition(77, 75)
     Menu.onButtonPressed(controller.A, function (selection, selectedIndex) {
         if (selectedIndex == 1) {
-            sprites.destroy(Title)
-            Level(1)
             Menu.close()
+            LvlSel = miniMenu.createMenu(
+            miniMenu.createMenuItem("Back", assets.image`X`),
+            miniMenu.createMenuItem("Stereo Madness", assets.image`Easy`)
+            )
+            LvlSel.onButtonPressed(controller.A, function (selection, selectedIndex) {
+                if (selectedIndex == 0) {
+                    Menu2()
+                } else if (selectedIndex == 1) {
+                    Level(1)
+                }
+                LvlSel.close()
+            })
+        } else if (selectedIndex == 2) {
+            Menu.close()
+            Misc = miniMenu.createMenu(
+            miniMenu.createMenuItem("Back", assets.image`X`),
+            miniMenu.createMenuItem("Editor", assets.image`Hamer`)
+            )
+            Misc.onButtonPressed(controller.A, function (selection, selectedIndex) {
+                if (selectedIndex == 0) {
+                    Misc.close()
+                    Menu2()
+                } else if (selectedIndex == 1) {
+                    sprites.destroy(Title)
+                    Misc.close()
+                    Editor()
+                }
+            })
         }
     })
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Ship`, function (sprite, location) {
+    Gamemode = 2
+    Playar.setImage(assets.image`PlayerShip`)
+})
 function Level (Id: number) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     if (Id == 1) {
@@ -78,20 +144,25 @@ function Level (Id: number) {
 controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
 	
 })
+controller.A.onEvent(ControllerButtonEvent.Released, function () {
+    if (Gamemode == 2) {
+        effects.clearParticles(Playar)
+        Playar.vy = 100
+    }
+})
 statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.GTE, statusbars.ComparisonType.Percentage, 100, function (status) {
     game.gameOver(true)
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Cube`, function (sprite, location) {
-    Gamemode = 1
-    Playar.setImage(assets.image`Player`)
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Ship`, function (sprite, location) {
-    Gamemode = 2
-    Playar.setImage(assets.image`PlayerShip`)
-})
+let Misc: miniMenu.MenuSprite = null
+let LvlSel: miniMenu.MenuSprite = null
 let Menu: miniMenu.MenuSprite = null
 let Title: Sprite = null
+let SelVar = 0
+let SelFrame: Sprite = null
+let SelBlock: Sprite = null
+let Back: Sprite = null
 let Playar: Sprite = null
+let InEditor = 0
 let Gamemode = 0
 let InLevel = 0
 let Progress: StatusBarSprite = null
@@ -101,6 +172,6 @@ Gamemode = 1
 tiles.setCurrentTilemap(tilemap`Level1`)
 Menu2()
 forever(function () {
-    pause(tileUtil.tilemapProperty(tileUtil.currentTilemap(), tileUtil.TilemapProperty.PixelWidth) / 10)
+    pause(tileUtil.tilemapProperty(tileUtil.currentTilemap(), tileUtil.TilemapProperty.PixelWidth) / 9)
     Progress.value += 1
 })
