@@ -1,3 +1,81 @@
+function MainMenu () {
+    scene.setBackgroundColor(9)
+    Title = sprites.create(assets.image`Title`, SpriteKind.Food)
+    Title.setPosition(81, 32)
+    Title.scale = 0.8
+    Menu = miniMenu.createMenu(
+    miniMenu.createMenuItem("1", assets.image`Info`),
+    miniMenu.createMenuItem("2", assets.image`Play`),
+    miniMenu.createMenuItem("3", assets.image`Misc`)
+    )
+    Menu.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.IconOnly, 1)
+    Menu.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 9)
+    Menu.setMenuStyleProperty(miniMenu.MenuStyleProperty.Rows, 1)
+    Menu.setMenuStyleProperty(miniMenu.MenuStyleProperty.Columns, 3)
+    Menu.setDimensions(100, 30)
+    Menu.setPosition(77, 75)
+    Menu.onButtonPressed(controller.A, function (selection, selectedIndex) {
+        if (selectedIndex == 0) {
+            game.showLongText("1/6, To jump/place a tile in editor: A", DialogLayout.Center)
+            game.showLongText("2/6, Press reset if game bugs", DialogLayout.Center)
+            game.showLongText("3/6, To exit editor: Long press B", DialogLayout.Center)
+            game.showLongText("4/6, To playtest: Long press A", DialogLayout.Center)
+            game.showLongText("5/6, To cycle tile selector: A+Up", DialogLayout.Center)
+            game.showLongText("6/6, Game was made by Nolan0027", DialogLayout.Center)
+        } else if (selectedIndex == 1) {
+            Menu.close()
+            LvlSel = miniMenu.createMenu(
+            miniMenu.createMenuItem("Back", assets.image`X`),
+            miniMenu.createMenuItem("Stereo Madness", assets.image`Easy`),
+            miniMenu.createMenuItem("Back on track", assets.image`Easy`),
+            miniMenu.createMenuItem("Polargiest", assets.image`Normal`),
+            miniMenu.createMenuItem("Dry out", assets.image`Normal`),
+            miniMenu.createMenuItem("Base after base", assets.image`Hard`),
+            miniMenu.createMenuItem("Cant let go", assets.image`Hard`),
+            miniMenu.createMenuItem("Jumper", assets.image`Harder`),
+            miniMenu.createMenuItem("Time machine", assets.image`Harder`),
+            miniMenu.createMenuItem("Cycles", assets.image`Harder`),
+            miniMenu.createMenuItem("xStep", assets.image`Insane`),
+            miniMenu.createMenuItem("Zodiac", assets.image`Demon`)
+            )
+            A = 1
+            LvlSel.moveSelection(miniMenu.MoveDirection.Right)
+            LvlSel.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 9)
+            LvlSel.setMenuStyleProperty(miniMenu.MenuStyleProperty.Rows, 1)
+            LvlSel.setMenuStyleProperty(miniMenu.MenuStyleProperty.Columns, 12)
+            LvlSel.setDimensions(1300, 50)
+            LvlSel.setPosition(650, 78)
+            LvlSel.onButtonPressed(controller.A, function (selection, selectedIndex) {
+                if (selectedIndex == 0) {
+                    MainMenu()
+                    A = 0
+                    LvlSel.close()
+                } else if (selectedIndex == 1) {
+                    Level(1)
+                    A = 0
+                    LvlSel.close()
+                }
+            })
+        } else if (selectedIndex == 2) {
+            Menu.close()
+            Misc = miniMenu.createMenu(
+            miniMenu.createMenuItem("Back", assets.image`X`),
+            miniMenu.createMenuItem("Editor", assets.image`Hamer`)
+            )
+            Misc.onButtonPressed(controller.A, function (selection, selectedIndex) {
+                if (selectedIndex == 0) {
+                    Misc.close()
+                    MainMenu()
+                } else if (selectedIndex == 1) {
+                    sprites.destroy(Title)
+                    Misc.close()
+                    tiles.setCurrentTilemap(tilemap`Editor`)
+                    Editor()
+                }
+            })
+        }
+    })
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (InEditor == 0) {
         if (InLevel == 1) {
@@ -132,87 +210,28 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Cube`, function (sprite, loca
     Gamemode = 1
     Playar.setImage(assets.image`Player`)
 })
-function Menu2 () {
-    scene.setBackgroundColor(9)
-    Title = sprites.create(assets.image`Title`, SpriteKind.Food)
-    Title.setPosition(81, 32)
-    Title.scale = 0.8
-    Menu = miniMenu.createMenu(
-    miniMenu.createMenuItem("1", assets.image`Info`),
-    miniMenu.createMenuItem("2", assets.image`Play`),
-    miniMenu.createMenuItem("3", assets.image`Misc`)
-    )
-    Menu.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.IconOnly, 1)
-    Menu.setMenuStyleProperty(miniMenu.MenuStyleProperty.Rows, 1)
-    Menu.setMenuStyleProperty(miniMenu.MenuStyleProperty.Columns, 3)
-    Menu.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 0)
-    Menu.setDimensions(100, 50)
-    Menu.setPosition(77, 75)
-    Menu.onButtonPressed(controller.A, function (selection, selectedIndex) {
-        if (selectedIndex == 0) {
-            game.showLongText("1/6, To jump/place a tile in editor: A", DialogLayout.Center)
-            game.showLongText("2/6, Press reset if game bugs", DialogLayout.Center)
-            game.showLongText("3/6, To exit editor: Long press B", DialogLayout.Center)
-            game.showLongText("4/6, To playtest: Long press A", DialogLayout.Center)
-            game.showLongText("5/6, To cycle tile selector: A+Up", DialogLayout.Center)
-            game.showLongText("6/6, Game was made by Nolan0027", DialogLayout.Center)
-        } else if (selectedIndex == 1) {
-            Menu.close()
-            LvlSel = miniMenu.createMenu(
-            miniMenu.createMenuItem("Back", assets.image`X`),
-            miniMenu.createMenuItem("Stereo Madness", assets.image`Easy`),
-            miniMenu.createMenuItem("Back on track", assets.image`Easy`),
-            miniMenu.createMenuItem("Polargiest", assets.image`Normal`),
-            miniMenu.createMenuItem("Dry out", assets.image`Normal`),
-            miniMenu.createMenuItem("Base after base", assets.image`Hard`),
-            miniMenu.createMenuItem("Cant let go", assets.image`Hard`),
-            miniMenu.createMenuItem("Jumper", assets.image`Harder`),
-            miniMenu.createMenuItem("Time machine", assets.image`Harder`),
-            miniMenu.createMenuItem("Cycles", assets.image`Harder`),
-            miniMenu.createMenuItem("xStep", assets.image`Insane`),
-            miniMenu.createMenuItem("Zodiac", assets.image`Demon`)
-            )
-            LvlSel.setDimensions(100, 80)
-            LvlSel.setPosition(73, 78)
-            LvlSel.onButtonPressed(controller.A, function (selection, selectedIndex) {
-                if (selectedIndex == 0) {
-                    Menu2()
-                } else if (selectedIndex == 1) {
-                    Level(1)
-                }
-                LvlSel.close()
-            })
-        } else if (selectedIndex == 2) {
-            Menu.close()
-            Misc = miniMenu.createMenu(
-            miniMenu.createMenuItem("Back", assets.image`X`),
-            miniMenu.createMenuItem("Editor", assets.image`Hamer`)
-            )
-            Misc.onButtonPressed(controller.A, function (selection, selectedIndex) {
-                if (selectedIndex == 0) {
-                    Misc.close()
-                    Menu2()
-                } else if (selectedIndex == 1) {
-                    sprites.destroy(Title)
-                    Misc.close()
-                    tiles.setCurrentTilemap(tilemap`Editor`)
-                    Editor()
-                }
-            })
-        }
-    })
-}
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (A == 1) {
+        LvlSel.x += 108
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Ship`, function (sprite, location) {
     Gamemode = 2
     Playar.setImage(assets.image`PlayerShip`)
 })
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (A == 1) {
+        LvlSel.x += -108
+    }
+})
 function Level (Id: number) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     if (Id == 1) {
-    	
-    } else if (Id == 2) {
-        tiles.setCurrentTilemap(tilemap`Level2`)
+        tiles.setCurrentTilemap(tilemap`Level1`)
     }
+    scroller.setLayerImage(scroller.BackgroundLayer.Layer0, assets.image`Bg`)
+    scroller.setLayerZIndex(scroller.BackgroundLayer.Layer0, -1000)
+    scroller.scrollBackgroundWithSpeed(-20, 0)
     Playar = sprites.create(assets.image`Player`, SpriteKind.Player)
     cameraOffsetScene.cameraFollowWithOffset(Playar, 40, 0)
     Playar.vx = 110
@@ -267,16 +286,17 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.GTE, statusbars.ComparisonType.Percentage, 100, function (status) {
     game.gameOver(true)
 })
-let Misc: miniMenu.MenuSprite = null
-let LvlSel: miniMenu.MenuSprite = null
-let Menu: miniMenu.MenuSprite = null
 let DiedAt: Sprite = null
 let Back: Sprite = null
 let Select: Sprite = null
 let SelFrame: Sprite = null
-let Title: Sprite = null
 let Playtesting = 0
 let Playar: Sprite = null
+let Misc: miniMenu.MenuSprite = null
+let A = 0
+let LvlSel: miniMenu.MenuSprite = null
+let Menu: miniMenu.MenuSprite = null
+let Title: Sprite = null
 let SelVar = 0
 let Gamemode = 0
 let InLevel = 0
@@ -287,8 +307,8 @@ InEditor = 0
 InLevel = 0
 Gamemode = 1
 SelVar = 1
-tiles.setCurrentTilemap(tilemap`Level1`)
-Menu2()
+tiles.setCurrentTilemap(tilemap`MenuBack`)
+MainMenu()
 forever(function () {
     pause(tileUtil.tilemapProperty(tileUtil.currentTilemap(), tileUtil.TilemapProperty.PixelWidth) / 9)
     Progress.value += 1
