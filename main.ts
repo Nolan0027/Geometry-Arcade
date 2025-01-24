@@ -32,12 +32,12 @@ function MainMenu () {
     Menu.setPosition(77, 75)
     Menu.onButtonPressed(controller.A, function (selection, selectedIndex) {
         if (selectedIndex == 0) {
-            game.showLongText("1/6, To jump/place a tile in editor: A", DialogLayout.Center)
+            game.showLongText("1/6: A to Jump/Place block", DialogLayout.Center)
             game.showLongText("2/6, Press reset if game bugs", DialogLayout.Center)
-            game.showLongText("3/6, To exit editor: Long press B", DialogLayout.Center)
-            game.showLongText("4/6, To playtest: Long press A", DialogLayout.Center)
-            game.showLongText("5/6, To cycle tile selector: A+Up", DialogLayout.Center)
-            game.showLongText("6/6, Game was made by Nolan0027", DialogLayout.Center)
+            game.showLongText("3/6: Hold B to exit editor", DialogLayout.Center)
+            game.showLongText("4/6: Hold A to Playtest", DialogLayout.Center)
+            game.showLongText("5/6: B+UP To cycle blocks", DialogLayout.Center)
+            game.showLongText("6/6: Demake made by Nolan0027", DialogLayout.Center)
         } else if (selectedIndex == 1) {
             Menu.close()
             color.startFade(color.originalPalette, color.Black, 1200)
@@ -183,7 +183,7 @@ function Editor () {
     InEditor = 1
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (controller.A.isPressed() && InEditor == 1) {
+    if (controller.B.isPressed() && InEditor == 1) {
         if (SelVar != 12) {
             SelVar += 1
         } else {
@@ -300,11 +300,11 @@ let InLevel = 0
 let InEditor = 0
 let Progress: StatusBarSprite = null
 Progress = statusbars.create(0, 0, StatusBarKind.Energy)
+tiles.setCurrentTilemap(tilemap`MenuBack`)
 InEditor = 0
 InLevel = 0
 Gamemode = 1
 SelVar = 1
-tiles.setCurrentTilemap(tilemap`MenuBack`)
 MainMenu()
 forever(function () {
     pause(tileUtil.tilemapProperty(tileUtil.currentTilemap(), tileUtil.TilemapProperty.PixelWidth) / 9)
