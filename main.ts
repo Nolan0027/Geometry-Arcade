@@ -40,6 +40,7 @@ function MainMenu () {
             game.showLongText("6/6, Game was made by Nolan0027", DialogLayout.Center)
         } else if (selectedIndex == 1) {
             Menu.close()
+            color.startFade(color.originalPalette, color.Black, 1200)
             LvlSel = miniMenu.createMenu(
             miniMenu.createMenuItem("Back", assets.image`X`),
             miniMenu.createMenuItem("Stereo Madness", assets.image`Easy`),
@@ -55,12 +56,11 @@ function MainMenu () {
             miniMenu.createMenuItem("Zodiac", assets.image`Demon`)
             )
             A = 1
-            LvlSel.moveSelection(miniMenu.MoveDirection.Right)
             LvlSel.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 9)
-            LvlSel.setMenuStyleProperty(miniMenu.MenuStyleProperty.Rows, 1)
             LvlSel.setMenuStyleProperty(miniMenu.MenuStyleProperty.Columns, 12)
             LvlSel.setDimensions(1300, 50)
             LvlSel.setPosition(650, 78)
+            color.startFade(color.Black, color.originalPalette, 500)
             LvlSel.onButtonPressed(controller.A, function (selection, selectedIndex) {
                 if (selectedIndex == 0) {
                     MainMenu()
@@ -72,6 +72,7 @@ function MainMenu () {
                     LvlSel.close()
                 }
             })
+            LvlSel.setMenuStyleProperty(miniMenu.MenuStyleProperty.Rows, 1)
         } else if (selectedIndex == 2) {
             Menu.close()
             Misc = miniMenu.createMenu(
@@ -105,7 +106,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     pause(370)
                     Playar.setImage(assets.image`Player`)
                 } else if (Gamemode == 2) {
-                    Playar.startEffect(effects.trail)
                     Playar.vy = -100
                     pause(200)
                 }
@@ -221,7 +221,7 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
         if (Playtesting == 0) {
             Gamemode = 1
             Progress.value = 0
-            tiles.placeOnTile(Playar, tiles.getTileLocation(SelVar, 14))
+            tiles.placeOnTile(Playar, tiles.getTileLocation(0, 14))
             Playar.vx = 110
             effects.clearParticles(Playar)
         } else {
@@ -253,6 +253,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Ship`, function (sprite, location) {
     Gamemode = 2
     Playar.setImage(assets.image`PlayerShip`)
+    Playar.startEffect(effects.trail)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (A == 1) {
@@ -276,7 +277,6 @@ function Level (Id: number) {
 }
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     if (Gamemode == 2) {
-        effects.clearParticles(Playar)
         Playar.vy = 100
     }
 })

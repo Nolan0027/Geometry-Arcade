@@ -7,7 +7,8 @@
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
         "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0",
         "arcade-camera-offset": "github:riknoll/arcade-camera-offset#50dcab790691a38799aa99390f9cced2d62fbc21",
-        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1"
+        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1",
+        "Color Fading": "github:jwunderl/pxt-color#v0.2.3"
     },
     "files": [
         "main.blocks",
